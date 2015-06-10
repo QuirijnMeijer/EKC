@@ -1,5 +1,5 @@
 # Beschrijft een punt gelegen op een elliptische kromme.
-# Aggratie door een insantie van een elliptische kromme.
+# Aggratie door een instantie van een elliptische kromme.
 
 class Punt(object):
     """Groepselement van een verzameling gegenereerd door een elliptische kromme"""
