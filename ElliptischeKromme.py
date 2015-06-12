@@ -1,4 +1,5 @@
 # Beschrijft een elliptische kromme, desgewenst over een eindig lichaam.
+import copy
 
 class ElliptischeKromme(object):
     """Een elliptische kromme vermeerderd met groepsoperaties"""
@@ -7,37 +8,50 @@ class ElliptischeKromme(object):
 
     __slots__ = ['a', 'b', 'p']
 
-    def __init__(self):
-        return 0
+    # Standaardwaarden a,b,p moeten nog gekozen worden.
+    def __init__(self, a, b, p):
+        self.a = a
+        self.b = b
+        self.p = p
 
     def __str__(self):
-        return 0
+        lichaam = 'R'
+        if self.p > 0:
+            lichaam = 'F' + str(self.p)
+        return 'K(%s): y^2 = x^3 + %fx + %f' % (lichaam, self.a, self.b)
 
-    def __add__(self, other):
-        return 0
-
-    def __sub__(self, other):
-        return 0
-
-    def __mul__(self, other):
-        return 0
+    # ------>
+    # Deze methoden overhevelen naar de klasse Punt? Rest uit te vinden hoe de parameters van de kromme overgedragen worden.
+    # ------>
+    #def __add__(self, P, Q):
+    #    return self.vermeerder(P, Q)
+    #
+    #def __sub__(self, P, Q):
+    #    return self.vermeerder(P, self.vermenigvuldig(-1, Q))
+    #
+    #def __mul__(self, s, P):
+    #    return self.vermenigvuldig(s, P)
+    # <------
 
     # Optelling van twee punten gelegen op de kromme
-    def vermeerder(self, other):
+    def vermeerder(self, P, Q):
         return 0
 
-    # Aftrekken van twee punten gelegen op de kromme
-    def verminder(self, other):
-        return 0
-
-    # Vermenigvuldiging van twee punten gelegen op de krome
-    def vermenigvuldig(self, other):
+    # Scalaire vermenigvuldiging van een punt op de kromme
+    def vermenigvuldig(self, s, P):
         return 0
 
     # Negatie van een punt gelegen op de kromme
-    def negatie(self):
-        return 0
+    def negatie(self, P):
+        Z = copy.deepcopy(P)
+        Z.y *= -1
+        return Z
 
-    # Herhaalde vermenigvuldiging met zichzelf van een punt gelegen op de kromme
-    def macht(self, a):
-        return 0
+    # Herhaalde optelling van een punt gelegen op de kromme
+    def macht(self, P, m):
+        Z = copy.deepcopy(P)
+        i = 0
+        while i < m:
+            self.vermeerder(Z, P)
+            i += 1
+        return Z
