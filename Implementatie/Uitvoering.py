@@ -2,5 +2,6 @@
 # Importeer Ondersteuning as o
 # Importeer ElliptischeKromme
 # Importeer Punt
+# Importeer DiffieHellman
 #
 # <Uit te voeren code>

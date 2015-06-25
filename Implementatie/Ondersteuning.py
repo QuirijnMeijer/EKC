@@ -23,6 +23,10 @@ class Ondersteuning(object):
                 i += 2
             return True
 
+    #
+    # bevatPunt wordt vervangen door ElliptischeKromme::verifieer(P)
+    #
+    
     # Controleert of een kromme een punt bevat
     def bevatPunt(self, kromme, punt):
         a = kromme.a; b = kromme.b; p = kromme.p

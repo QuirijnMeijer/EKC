@@ -6,12 +6,16 @@ class ElliptischeKromme(object):
 
     # y^2 = x^3 + ax + b
 
-    __slots__ = ['a', 'b', 'p']
+    __slots__ = ['a', 'b', 'p', 'foutmelding']
 
     # Standaardwaarden a,b,p moeten nog gekozen worden.
-    def __init__(self, a, b, p):
+    def __init__(self, a=0, b=0, p=0):
+        self.foutmelding = 'De opgegeven punten zijn niet compatibel.'
         self.a = a
         self.b = b
+        if p in range(1,4):
+            p = 0
+            print('De waarde p mag niet gelijk zijn aan 1, 2 of 3. De waarde 0 wordt gebruikt.')
         self.p = p
 
     def __str__(self):
@@ -20,38 +24,43 @@ class ElliptischeKromme(object):
             lichaam = 'F' + str(self.p)
         return 'K(%s): y^2 = x^3 + %fx + %f' % (lichaam, self.a, self.b)
 
-    # ------>
-    # Deze methoden overhevelen naar de klasse Punt? Rest uit te vinden hoe de parameters van de kromme overgedragen worden.
-    # ------>
-    #def __add__(self, P, Q):
-    #    return self.vermeerder(P, Q)
-    #
-    #def __sub__(self, P, Q):
-    #    return self.vermeerder(P, self.vermenigvuldig(-1, Q))
-    #
-    #def __mul__(self, s, P):
-    #    return self.vermenigvuldig(s, P)
-    # <------
-
     # Optelling van twee punten gelegen op de kromme
     def vermeerder(self, P, Q):
-        return 0
+        assert verifieer(P) and verifieer(Q), self.foutmelding
+        Z = Punt(self)
+        if self.p == 0:
+            dydx = (Q.y - P.y)/(Q.x - P.x)
+            Z.x = dydx**2 - P.x - Q.x
+            Z.y = dydx * (Z.x - P.x) + P.y
+        else:
+            Z.x = 0; Z.y = 0
+        Z = self.negatie(Z)
+        return Z
+
+    # Aftrekken van een punt gelegen op de kromme van een andere punt gelegen op de kromme
+    def verminder(self, P, Q):
+        assert verifieer(P) and verifieer(Q), self.foutmelding
+        return vermeerder(P, self.negatie(Q))
 
     # Scalaire vermenigvuldiging van een punt op de kromme
-    def vermenigvuldig(self, s, P):
-        return 0
+    def vermenigvuldig(self, P, n):
+        assert verifieer(P) and verifieer(Q), self.foutmelding
+        Z = copy.deepcopy(P)
+        i = 0
+        while i < n:
+            self.vermeerder(Z, P)
+            i += 1
+        return Z
 
-    # Negatie van een punt gelegen op de kromme
+    # Negatie van een punt
     def negatie(self, P):
         Z = copy.deepcopy(P)
         Z.y *= -1
         return Z
-
-    # Herhaalde optelling van een punt gelegen op de kromme
-    def macht(self, P, m):
-        Z = copy.deepcopy(P)
-        i = 0
-        while i < m:
-            self.vermeerder(Z, P)
-            i += 1
-        return Z
+    
+    # Verifieert of P een punt op de kromme is
+    def verifieer(self, P):
+        val = False
+        if type(P) == Punt: # en voldoet aan de vergelijking over Fp
+            val = True
+        return val
