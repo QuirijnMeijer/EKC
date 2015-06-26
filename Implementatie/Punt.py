@@ -28,7 +28,7 @@ class Punt(object):
     def __pow__(self, n):
         return self.__mul__(n)
 
-    # Controleert of het punt gelijk is aan het gegeven punt.
+    # Controleert of het punt gelijk is aan het gegeven punt
     def isGelijk(self, Q):
         val = False
         if type(Q) == Punt and (P.K.a == self.K.a and P.K.b == self.K.b and P.K.p == self.K.p) and self.x == Q.x and self.y == Q.y:
