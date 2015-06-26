@@ -14,13 +14,13 @@ class Punt(object):
         return '(%f, %f)' % (self.x, self.y)
 
     def __add__(self, Q):
-        return K.vermeerder(self, Q)
+        return self.K.vermeerder(self, Q)
 
     def __sub__(self, Q):
-        return K.verminder(self, Q)
+        return self.K.verminder(self, Q)
 
     def __mul__(self, n):
-        return K.vermenigvuldig(self, n)
+        return self.K.vermenigvuldig(self, n)
     
     def __rmul__(self, n):
         return self.__mul__(n)

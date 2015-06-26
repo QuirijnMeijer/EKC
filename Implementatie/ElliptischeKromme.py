@@ -25,6 +25,13 @@ class ElliptischeKromme(object):
     # Optelling van twee punten gelegen op de kromme
     def vermeerder(self, P, Q):
         assert self.verifieer(P) and self.verifieer(Q), 'De parameters zijn niet compatibel.'
+        if P == 'O' or Q == 'O':
+            if P == 'O' and not Q == 'O':
+                return Q
+            elif Q == 'O' and not P == 'O':
+                return P
+            else:
+                return 'O'
         Z = Punt(self)
         if self.p == 0 and not P.isGelijk(Q):
             dydx = (Q.y - P.y)/(Q.x - P.x)
@@ -35,9 +42,13 @@ class ElliptischeKromme(object):
             Z.x = dydx**2 - 2 * P.x
             Z.y = dydx * (Z.x - P.x) + P.y
         elif self.p > 0 and not P.isGelijk(Q):
-            Z.x = 0; Z.y = 0
+            dydx = ((Q.y - P.y) * (Q.x - P.x)**(-1)) % self.p
+            Z.x = (dydx**2 - P.x - Q.x) % self.p
+            Z.y = (dydx * (Z.x - P.x) + P.y) % self.p
         elif self.p > 0 and P.isGelijk(Q):
-            Z.x = 0; Z.y = 0
+            dydx = ((3 * (P.x)**2 + self.a) * (2 * P.y)**(-1)) % self.p
+            Z.x = (dydx**2 - P.x - Q.x) % self.p
+            Z.y = (dydx * (Z.x - P.x) + P.y) % self.p
         Z = self.negatie(Z)
         return Z
 
@@ -64,5 +75,7 @@ class ElliptischeKromme(object):
     def verifieer(self, P):
         val = False
         if type(P) == Punt and (P.K.a == self.a and P.K.b == self.b and P.K.p == self.p) and ((self.p == 0 and P.y**2 == P.x**3 + self.a * P.x + self.b) or (self.p > 0 and (P.y**2) % self.p == (P.x**3 + self.a * P.x + self.b) % self.p)):
+            val = True
+        if P == 'O':
             val = True
         return val
