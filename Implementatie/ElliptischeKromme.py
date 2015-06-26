@@ -1,10 +1,18 @@
+# --->
+# Voor gebruik in IDLE (Windows):
+# --->
+import sys
+import os
+z = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(z)
+# <---
+
 # Beschrijft een elliptische kromme, desgewenst over een eindig lichaam.
 import copy
+from Punt import *
 
 class ElliptischeKromme(object):
-    """Een elliptische kromme vermeerderd met groepsoperaties"""
-
-    # y^2 = x^3 + ax + b
+    """Een elliptische kromme y^2 = x^3 + ax + b over Fp vermeerderd met groepsoperaties"""
 
     __slots__ = ['a', 'b', 'p']
 
@@ -32,6 +40,8 @@ class ElliptischeKromme(object):
                 return P
             else:
                 return 'O'
+        elif P.x == Q.x and P.y == -1 * Q.y:
+            return 'O'
         Z = Punt(self)
         if self.p == 0 and not P.isGelijk(Q):
             dydx = (Q.y - P.y)/(Q.x - P.x)
@@ -42,13 +52,17 @@ class ElliptischeKromme(object):
             Z.x = dydx**2 - 2 * P.x
             Z.y = dydx * (Z.x - P.x) + P.y
         elif self.p > 0 and not P.isGelijk(Q):
+            # ---> Werkt nog niet
             dydx = ((Q.y - P.y) * (Q.x - P.x)**(-1)) % self.p
             Z.x = (dydx**2 - P.x - Q.x) % self.p
             Z.y = (dydx * (Z.x - P.x) + P.y) % self.p
+            # <---
         elif self.p > 0 and P.isGelijk(Q):
+            # ---> Werkt nog niet
             dydx = ((3 * (P.x)**2 + self.a) * (2 * P.y)**(-1)) % self.p
             Z.x = (dydx**2 - P.x - Q.x) % self.p
             Z.y = (dydx * (Z.x - P.x) + P.y) % self.p
+            # <---
         Z = self.negatie(Z)
         return Z
 
@@ -67,6 +81,8 @@ class ElliptischeKromme(object):
 
     # Negatie van een punt
     def negatie(self, P):
+        if P == 'O':
+            return 'O'
         Z = copy.deepcopy(P)
         Z.y *= -1
         return Z

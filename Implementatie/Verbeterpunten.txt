@@ -1,0 +1,5 @@
+* Optelling over Fp
+* Uitwerken Diffie-Hellman
+* Opvangen afrondingsfouten (over R bestaat een n zodat nP niet langer op de kromme K ligt door afrondingsfouten)
+
+* Bonus 

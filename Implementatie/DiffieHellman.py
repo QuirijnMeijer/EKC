@@ -1,7 +1,7 @@
 # Representeert een implementatie van het Diffie-Hellman protocol
 
 class DiffieHellman(object):
-    """Encapsuleert de methoden gebruikt voor in het Diffie-Hellman protocol"""
+    """Encapsuleert de methoden gebruikt voor in het Diffie-Hellman protocol, K de elliptische kromme, k het genererend element"""
 
     __slots__ = ['K', 'k']
 
@@ -11,4 +11,11 @@ class DiffieHellman(object):
 
     def __str__(self):
         return 'Actief: de groep (%s, +) met genererend element %s.' % (self.K.__str__(), self.k.__str__())
-    
+
+    # Genereert een publieke sleutel xk
+    def publiekeSleutel(self, x):
+        return self.k**x
+
+    # Vindt de gedeelde sleutel yxk
+    def sleutel(self, P, y):
+        return P**y

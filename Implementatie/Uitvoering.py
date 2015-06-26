@@ -1,15 +1,16 @@
-# Bundeling van de verscheidene klassen, centraal punt voor uitvoering van de scripts.
-# Uitvoerbaar in command-line
-
 # --->
 # Voor gebruik in IDLE (Windows):
 # --->
-import sys; sys.path.append(r'C:\\Users\\Q\\Documents\\GitHub\\Eindopdracht\\Implementatie')
+import sys
+import os
+z = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(z)
 # <---
 
-import Ondersteuning as O
+# Bundeling van de verscheidene klassen, centraal punt voor uitvoering van de scripts.
+
+from Ondersteuning import *
 from ElliptischeKromme import *
-from Punt import *
 from DiffieHellman import *
 
 # <Uit te voeren code>
