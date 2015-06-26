@@ -1,0 +1,10 @@
+* Optelling over Fp
+* Uitwerken Diffie-Hellman
+
+* Bonus 
+	- Pollard Rho
+	- Baby step giant step
+	- Analyse (complexiteit, datastructuren, ...) en gebruik van code in hoofdstuk 'Prestaties'
+
+- Vragen naar bronverwijzingen.
+- Vragen naar implementatie Diffie-Hellman
