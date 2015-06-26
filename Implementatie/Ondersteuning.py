@@ -23,20 +23,6 @@ class Ondersteuning(object):
                 i += 2
             return True
 
-    #
-    # bevatPunt wordt vervangen door ElliptischeKromme::verifieer(P)
-    #
-    
-    # Controleert of een kromme een punt bevat
-    def bevatPunt(self, kromme, punt):
-        a = kromme.a; b = kromme.b; p = kromme.p
-        x = punt.x; y = punt.y
-        # Indien p = 0 is het lichaam R. Zoniet, 0 < x,y < p.
-        if (p == 0 or (x in range(0, p) and y in range(0, p))) and x**3 + a*x + b - y**2 == 0:
-            return True
-        else:
-            return False
-
     # Registreert verstreken tijd na uitvoering verzameling methoden.
     def klok(self, methoden):
         A = time.perf_counter()

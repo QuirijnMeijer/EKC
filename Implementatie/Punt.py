@@ -1,5 +1,4 @@
-# Beschrijft een punt gelegen op een elliptische kromme.
-# Aggratie door een instantie van een elliptische kromme.
+# Beschrijft een willekeurig punt en relateert deze aan een elliptische kromme.
 
 class Punt(object):
     """Groepselement van een verzameling gegenereerd door een elliptische kromme"""
@@ -22,11 +21,17 @@ class Punt(object):
 
     def __mul__(self, n):
         return K.vermenigvuldig(self, n)
+    
+    def __rmul__(self, n):
+        return self.__mul__(n)
+
+    def __pow__(self, n):
+        return self.__mul__(n)
 
     # Controleert of het punt gelijk is aan het gegeven punt.
     def isGelijk(self, Q):
         val = False
-        if type(Q) == Punt and self.x == Q.x and self.y == Q.y:
+        if type(Q) == Punt and (P.K.a == self.K.a and P.K.b == self.K.b and P.K.p == self.K.p) and self.x == Q.x and self.y == Q.y:
             val = True
         return val
         
