@@ -1,3 +1,5 @@
+* Er zit nog een bug in optellen in Fp (denk dat het te maken heeft met volgorde van negatie en %p aan het eind voor de return) --> (Of met negatieve mod van Z.y)
+
 # Bonus 
 	* Baby step giant step
 	* Pollard Rho

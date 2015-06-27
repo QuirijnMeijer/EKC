@@ -18,4 +18,7 @@ class DiffieHellman(object):
 
     # Vindt de gedeelde sleutel yxk
     def priveSleutel(self, P, y):
-        return P**y
+        if P == 'O':
+            return 'O'
+        else:
+            return P**y
