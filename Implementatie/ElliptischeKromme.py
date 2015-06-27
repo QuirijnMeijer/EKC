@@ -14,7 +14,7 @@ from Punt import *
 class ElliptischeKromme(object):
     """Een elliptische kromme y^2 = x^3 + ax + b over Fp vermeerderd met groepsoperaties"""
 
-    __slots__ = ['a', 'b', 'p', 'e']
+    __slots__ = ['a', 'b', 'p']
 
     def __init__(self, a=0, b=0, p=0):
         self.a = a
@@ -23,8 +23,6 @@ class ElliptischeKromme(object):
             p = 0
             print('De waarde p mag niet gelijk zijn aan 1, 2 of 3. De waarde 0 wordt gebruikt.')
         self.p = p
-        # Foutmarge om rekening te houden met afrondingsverschillen
-        self.e = 0.1
 
     def __str__(self):
         lichaam = 'R'
@@ -92,7 +90,7 @@ class ElliptischeKromme(object):
     # Verifieert of het gegeven punt een punt op de kromme is
     def verifieer(self, P):
         val = False
-        if type(P) == Punt and (P.K.a == self.a and P.K.b == self.b and P.K.p == self.p) and ((self.p == 0 and abs(P.x**3 + self.a * P.x + self.b - P.y**2) < self.e) or (self.p > 0 and (P.y**2) % self.p == (P.x**3 + self.a * P.x + self.b) % self.p)):
+        if type(P) == Punt and (P.K.a == self.a and P.K.b == self.b and P.K.p == self.p) and ((self.p == 0 and abs(P.x**3 + self.a * P.x + self.b - P.y**2) < 0.1) or (self.p > 0 and (P.y**2) % self.p == (P.x**3 + self.a * P.x + self.b) % self.p)):
             val = True
         if P == 'O':
             val = True

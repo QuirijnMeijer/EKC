@@ -23,7 +23,10 @@ class Punt(object):
         return self.K.verminder(self, Q)
 
     def __rsub__(self, Q):
-        return self.__sub__(Q)
+        if Q == 'O':
+            return self.K.negatie(self)
+        else:
+            return self.__sub__(Q)
 
     def __mul__(self, n):
         return self.K.vermenigvuldig(self, n)
