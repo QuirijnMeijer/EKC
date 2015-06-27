@@ -11,7 +11,10 @@ class Punt(object):
         self.y = y
 
     def __str__(self):
-        return '(%f, %f)' % (self.x, self.y)
+        val = '(%f, %f)' % (self.x, self.y)
+        if self.K.p > 0:
+            val = '(%d, %d)' % (self.x, self.y)
+        return val
 
     def __add__(self, Q):
         return self.K.vermeerder(self, Q)

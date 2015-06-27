@@ -18,16 +18,17 @@ class ElliptischeKromme(object):
 
     def __init__(self, a=0, b=0, p=0):
         if not p == 0:
-            assert p > 3 and a in range(0, p) and b in range(0, p), 'De combinatie (a,b,p) is ongeldig.'
+            assert p > 3 and (a % p) in range(0, p) and (b % p) in range(0, p), 'De combinatie (a,b,p) is ongeldig.'
         self.a = a
         self.b = b
         self.p = p
 
     def __str__(self):
-        lichaam = 'R'
+        val = 'K(R): y^2 = x^3 + %fx + %f' % (self.a, self.b)
         if self.p > 0:
             lichaam = 'F' + str(self.p)
-        return 'K(%s): y^2 = x^3 + %fx + %f' % (lichaam, self.a, self.b)
+            val = 'K(%s): y^2 = x^3 + %dx + %d' % (lichaam, self.a, self.b)
+        return val
 
     # Optelling van twee punten gelegen op de kromme
     def vermeerder(self, P, Q):
@@ -51,18 +52,22 @@ class ElliptischeKromme(object):
             Z.x = dydx**2 - 2 * P.x
             Z.y = dydx * (Z.x - P.x) + P.y
         elif self.p > 0 and not P.isGelijk(Q):
-            # ---> Werkt nog niet
-            dydx = ((Q.y - P.y) * (Q.x - P.x)**(-1)) % self.p
-            Z.x = (dydx**2 - P.x - Q.x) % self.p
-            Z.y = (dydx * (Z.x - P.x) + P.y) % self.p
-            # <---
+            a = (-1 * P.x**3 + P.x**2 * Q.x + P.x * Q.x**2 - Q.x**3 + (P.y - Q.y)**2) % self.p
+            b = pow(((P.x - Q.x)**2), self.p-2, self.p)
+            Z.x = (a * b) % self.p
+            c = ((Q.y - P.y) * (Z.x - P.x) + P.y * (Q.x - P.x)) % self.p
+            d = pow((Q.x - P.x), self.p-2, self.p)
+            Z.y = (c * d) % self.p
         elif self.p > 0 and P.isGelijk(Q):
-            # ---> Werkt nog niet
-            dydx = ((3 * (P.x)**2 + self.a) * (2 * P.y)**(-1)) % self.p
-            Z.x = (dydx**2 - P.x - Q.x) % self.p
-            Z.y = (dydx * (Z.x - P.x) + P.y) % self.p
-            # <---
+            a = (9 * P.x**4 + 6 * P.x**2 * self.a - 8 * P.x * P.y**2 + self.a**2) % self.p
+            b = pow((4 * P.y**2), self.p-2, self.p)
+            Z.x = (a * b) % self.p
+            c = ((3 * P.x**2 + self.a) * (Z.x - P.x) + 2 * P.y**2) % self.p
+            d = pow((2 * P.y), self.p-2, self.p)
+            Z.y = (c * d) % self.p
         Z = self.negatie(Z)
+        if self.p > 0:
+            Z.y = Z.y % self.p
         return Z
 
     # Aftrekken van een punt gelegen op de kromme van een andere punt gelegen op de kromme

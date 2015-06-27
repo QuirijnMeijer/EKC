@@ -10,7 +10,7 @@ class DiffieHellman(object):
         self.k = k
 
     def __str__(self):
-        return 'Actief: de groep (%s, +) met genererend element %s.' % (self.K, self.k)
+        return 'Actief: de groep [%s, +] met genererend element %s.' % (self.K, self.k)
 
     # Genereert een publieke sleutel xk
     def publiekeSleutel(self, x):
