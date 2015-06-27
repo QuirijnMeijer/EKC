@@ -17,11 +17,10 @@ class ElliptischeKromme(object):
     __slots__ = ['a', 'b', 'p']
 
     def __init__(self, a=0, b=0, p=0):
+        if not p == 0:
+            assert p > 3 and a in range(0, p) and b in range(0, p), 'De combinatie (a,b,p) is ongeldig.'
         self.a = a
         self.b = b
-        if p in range(1,4):
-            p = 0
-            print('De waarde p mag niet gelijk zijn aan 1, 2 of 3. De waarde 0 wordt gebruikt.')
         self.p = p
 
     def __str__(self):
