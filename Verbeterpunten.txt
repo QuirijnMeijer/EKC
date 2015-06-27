@@ -1,10 +1,12 @@
 * Optelling over Fp
-* Uitwerken Diffie-Hellman
+* Verslag afmaken
 
-* Bonus 
-	- Pollard Rho
-	- Baby step giant step
-	- Analyse (complexiteit, datastructuren, ...) en gebruik van code in hoofdstuk 'Prestaties'
+# Bonus 
+	* Pollard Rho
+	* Baby step giant step
+	* Analyse (complexiteit, datastructuren) en gebruik van code in hoofdstuk 'Prestaties'
 
-- Vragen naar bronverwijzingen.
-- Vragen naar implementatie Diffie-Hellman
+- Vragen naar bronverwijzingen (hoe op te nemen?)
+- Vragen naar implementatie Diffie-Hellman (hoe bruikbaar maken in command line?)
+
+Opmerking: Indien het verslag te lang is kunnen hoofdstukken 1, 2 en 7 overgeslagen worden.

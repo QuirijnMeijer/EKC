@@ -13,8 +13,6 @@ from Ondersteuning import *
 from ElliptischeKromme import *
 from DiffieHellman import *
 
-# <Uit te voeren code>
-
 # ~ Onderstaand moet nog zo verwerkt worden dat het werkt in de command line.
 
 # ~~~>
