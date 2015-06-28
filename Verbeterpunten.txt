@@ -1,5 +1,3 @@
-* Bug: y2 = x3 + x + 1 over F5 --> Z = (0,1). 8Z + Z = (0,0)
-
 # Bonus 
 	* Baby step giant step
 	* Pollard Rho
