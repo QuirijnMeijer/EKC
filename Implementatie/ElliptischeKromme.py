@@ -33,6 +33,7 @@ class ElliptischeKromme(object):
     # Optelling van twee punten gelegen op de kromme
     def vermeerder(self, P, Q):
         assert self.verifieer(P) and self.verifieer(Q), 'De parameters zijn niet compatibel.'
+        # Wanneer een van beiden het eenheidselement is is een berekening overbodig
         if P == 'O' or Q == 'O':
             if P == 'O' and not Q == 'O':
                 return Q
@@ -43,6 +44,7 @@ class ElliptischeKromme(object):
         elif P.x == Q.x and P.y == -1 * Q.y:
             return 'O'
         Z = Punt(self)
+        # Maak onderscheid tussen R en Fp, optelling en verdubbeling
         if self.p == 0 and not P.isGelijk(Q):
             dydx = (Q.y - P.y)/(Q.x - P.x)
             Z.x = dydx**2 - P.x - Q.x
@@ -67,7 +69,12 @@ class ElliptischeKromme(object):
             Z.y = (c * d) % self.p
         Z = self.negatie(Z)
         if self.p > 0:
-            Z.y = Z.y % self.p
+            # Wanneer dit het geval is is de combinatie afgebeeld op het eenheidselement
+            if Z.x == Z.y == 0 and not self.b == 0:
+                return 'O'
+            # Zoniet, normaliseer het punt
+            else:
+                Z.y = Z.y % self.p
         return Z
 
     # Aftrekken van een punt gelegen op de kromme van een andere punt gelegen op de kromme

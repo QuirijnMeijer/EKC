@@ -27,5 +27,5 @@ publiekeSleutelB = DH.publiekeSleutel(b)
 print('De publieke sleutel van persoon B is %s' % publiekeSleutelB)
 gedeeldeSleutelA = DH.priveSleutel(publiekeSleutelB, a)
 gedeeldeSleutelB = DH.priveSleutel(publiekeSleutelA, b)
-print('De geheime sleutel is [A] %s == %s [B]' % (gedeeldeSleutelA, gedeeldeSleutelB))
+print('De gedeelde geheime sleutel is [A] %s == %s [B]' % (gedeeldeSleutelA, gedeeldeSleutelB))
 # <~~~
