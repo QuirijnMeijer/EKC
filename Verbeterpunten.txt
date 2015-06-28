@@ -1,4 +1,4 @@
-* Er zit nog een bug in optellen in Fp (denk dat het te maken heeft met volgorde van negatie en %p aan het eind voor de return) --> (Of met negatieve mod van Z.y)
+* Bug: y2 = x3 + x + 1 over F5 --> Z = (0,1). 8Z + Z = (0,0)
 
 # Bonus 
 	* Baby step giant step

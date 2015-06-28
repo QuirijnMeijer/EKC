@@ -14,6 +14,7 @@ class DiffieHellman(object):
 
     # Genereert een publieke sleutel xk
     def publiekeSleutel(self, x):
+        x = x % self.K.p
         return self.k**x
 
     # Vindt de gedeelde sleutel yxk
@@ -21,4 +22,5 @@ class DiffieHellman(object):
         if P == 'O':
             return 'O'
         else:
+            y = y % self.K.p
             return P**y

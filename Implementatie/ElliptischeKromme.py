@@ -66,6 +66,8 @@ class ElliptischeKromme(object):
             d = pow((2 * P.y), self.p-2, self.p)
             Z.y = (c * d) % self.p
         Z = self.negatie(Z)
+        if self.p > 0:
+            Z.y = Z.y % self.p
         return Z
 
     # Aftrekken van een punt gelegen op de kromme van een andere punt gelegen op de kromme
