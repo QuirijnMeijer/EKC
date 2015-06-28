@@ -18,7 +18,7 @@ class ElliptischeKromme(object):
 
     def __init__(self, a=0, b=0, p=0):
         if not p == 0:
-            assert p > 3 and (a % p) in range(0, p) and (b % p) in range(0, p), 'De combinatie (a,b,p) is ongeldig.'
+            assert p > 3 and (a % p) in range(0, p) and (b % p) in range(0, p) and not -1 * 16 * (4 * a**3 + 27 * b**2) == 0, 'De combinatie (a,b,p) is ongeldig.'
         self.a = a
         self.b = b
         self.p = p
