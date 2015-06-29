@@ -10,6 +10,7 @@ sys.path.append(z)
 # Beschrijft een elliptische kromme, desgewenst over een eindig lichaam.
 import copy
 from Punt import *
+from Ondersteuning import *
 
 class ElliptischeKromme(object):
     """Een elliptische kromme y^2 = x^3 + ax + b over Fp vermeerderd met groepsoperaties"""
@@ -18,7 +19,7 @@ class ElliptischeKromme(object):
 
     def __init__(self, a=0, b=0, p=0):
         if not p == 0:
-            assert p > 3 and (a % p) in range(0, p) and (b % p) in range(0, p) and not -1 * 16 * (4 * a**3 + 27 * b**2) == 0, 'De combinatie (a,b,p) is ongeldig.'
+            assert p > 3 and isPriem(p) and (a % p) in range(0, p) and (b % p) in range(0, p) and not -1 * 16 * (4 * a**3 + 27 * b**2) == 0, 'De combinatie (a,b,p) is ongeldig.'
         self.a = a
         self.b = b
         self.p = p
@@ -96,6 +97,8 @@ class ElliptischeKromme(object):
             return 'O'
         Z = copy.deepcopy(P)
         Z.y *= -1
+        if self.p > 0:
+            Z.y = Z.y % self.p
         return Z
     
     # Verifieert of het gegeven punt een punt op de kromme is

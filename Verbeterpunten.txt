@@ -1,11 +1,11 @@
+* assert punt op de kromme in punt klasse?
+
 # Bonus 
 	* Baby step giant step
 	* Pollard Rho
 	* Analyse (complexiteit, datastructuren) en gebruik van code in hoofdstuk 'Prestaties'
 	* Als er daarna nog tijd over is evt. een hoofdstuk wijden aan Shamir-Massey-Omura (encryptie zonder sleutel)
 
-- Vragen naar tussentijdse beoordeling
 - Vragen naar bronverwijzingen (hoe op te nemen?)
-- Vragen naar implementatie Diffie-Hellman (hoe bruikbaar maken in command line?)
 
 Opmerking: Indien het verslag te lang is kunnen hoofdstukken 1, 2 en 7 overgeslagen worden.
