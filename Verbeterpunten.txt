@@ -1,14 +1,6 @@
-* assert punt op de kromme in punt klasse als p > 0
-* afmaken hoofdstuk bsgs in verslag
-* implementeren bsgs
+* afmaken implementatie BSGS (en fix geval 'O')
 * afmaken laatste hoofdstuk in verslag
-
-# Bonus 
-	* Baby step giant step
-	* Pollard Rho
-	* Analyse (complexiteit, datastructuren) en gebruik van code in hoofdstuk 'Prestaties'
-	* Als er daarna nog tijd over is evt. een hoofdstuk wijden aan Shamir-Massey-Omura (encryptie zonder sleutel)
 
 - Vragen naar bronverwijzingen (hoe op te nemen?)
 
-Opmerking: Indien het verslag te lang is kunnen hoofdstukken 1, 2 en 7 overgeslagen worden.
+Opmerking: Indien het verslag te lang is kunnen hoofdstukken 1, 2 en 6 overgeslagen worden.

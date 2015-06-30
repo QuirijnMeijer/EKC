@@ -14,3 +14,8 @@ from BabyStepGiantStep import *
 
 # Start van het script
 
+K = ElliptischeKromme(2, 2, 17)
+P = Punt(K, 0, 6)
+Z = P**6
+B = BabyStepGiantStep(K, P, 0)
+B.verstelDoel(Z)

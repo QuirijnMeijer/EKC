@@ -8,3 +8,6 @@ class Paar(object):
     def __init__(self, a, aP):
         self.a = a
         self.aP = aP
+
+    def __str__(self):
+        return '(%d, %s)' % (self.a, self.aP)
