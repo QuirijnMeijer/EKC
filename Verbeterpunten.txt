@@ -1,4 +1,7 @@
-* assert punt op de kromme in punt klasse?
+* assert punt op de kromme in punt klasse als p > 0
+* afmaken hoofdstuk bsgs in verslag
+* implementeren bsgs
+* afmaken laatste hoofdstuk in verslag
 
 # Bonus 
 	* Baby step giant step
