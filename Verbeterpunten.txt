@@ -1,4 +1,3 @@
-* Afmaken laatste hoofdstuk verslag.
 * Readme.MD
 
 - Vragen naar bronverwijzingen (hoe op te nemen?)
