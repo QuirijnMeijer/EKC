@@ -1,7 +1,6 @@
-* Aanpassen hoofdstuk 'Implementatie in Python' op ElGamal.
-* Afmaken laatste hoofdstuk verslag (Uitvoering_* zijn demonstraties) -- Specifiek vereisten ElGamal beschrijven! En de rest ook maar meteen, dan.
+* Afmaken laatste hoofdstuk verslag.
 * Readme.MD
 
 - Vragen naar bronverwijzingen (hoe op te nemen?)
 
-Opmerking: Indien het verslag te lang is kunnen hoofdstukken 1, 2 en 6 overgeslagen worden.
+Opmerking: Indien het verslag te lang is kunnen hoofdstukken 1, 2 en 6 overgeslagen worden. (--> Readme)
