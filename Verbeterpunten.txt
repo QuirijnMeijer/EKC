@@ -1,8 +1,5 @@
-* Als er nog tijd over is een functie E (Python dict) voor gebruik met ElGamal of een voorbeeld noemen in het laatste hoofdstuk (bijv. ['a'] = k**1, ['b'] = k**2 voor #K(Fp)>26+1)
-		--> Jep die ga ik nog doen. Dan ook even het hoofdstuk 'Implementatie in Python' hier op aanpassen. ElGamal klasse: dict zoals bovenstaand, en twee methoden om
-			punten en letters onderling te vertalen. En een punt toevoegen voor een 'spatie'. En methoden voor 'vertaal boodschap' op en neer.
-			#K(Fp) > 26 + 1 : groter dan 26 voor alfabet + spaties, en ik wil O niet op spatie mappen.
-* Afmaken laatste hoofdstuk verslag (Uitvoering_* zijn demonstraties)
+* Aanpassen hoofdstuk 'Implementatie in Python' op ElGamal.
+* Afmaken laatste hoofdstuk verslag (Uitvoering_* zijn demonstraties) -- Specifiek vereisten ElGamal beschrijven! En de rest ook maar meteen, dan.
 * Readme.MD
 
 - Vragen naar bronverwijzingen (hoe op te nemen?)
