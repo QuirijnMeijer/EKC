@@ -22,7 +22,7 @@ class BabyStepGiantStep(object):
         self.k = k
         self.m = m
         if self.m == 0:
-            self.m = math.ceil(2 * math.sqrt(K.p) + K.p + 1)
+            self.m = math.ceil(math.sqrt(2 * math.sqrt(K.p) + K.p + 1))
         self.reset()
 
     def __str__(self):

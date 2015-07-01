@@ -21,6 +21,7 @@ class ElGamal(object):
         self.C = C
         self.afbeelding = dict()
         alfabet = ['_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        # Stel de afbeelding op
         P = k
         i = 0
         while i < len(alfabet):
