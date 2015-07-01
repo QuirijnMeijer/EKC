@@ -16,5 +16,11 @@ from ElGamal import *
 
 K = ElliptischeKromme(5, 1, 23)
 k = Punt(K, 0, 1)
-EG = ElGamal(K, k)
+C = Punt(K, 5, 6)
+EG = ElGamal(K, k, C)
 print(EG)
+boodschap = input('\nVoer een boodschap bestaand uit enkel kleine letters en spaties in:\n')
+c = EG.codeerBoodschap(boodschap)
+print('\nDe boodschap "%s" is gecodeerd:\n%s' % (boodschap, EG.printCode(c)))
+origineel = EG.decodeerBoodschap(c)
+print('\nDe code is terugvertaald naar:\n%s' % (origineel))
