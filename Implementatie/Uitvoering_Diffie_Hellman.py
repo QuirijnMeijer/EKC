@@ -17,6 +17,7 @@ from DiffieHellman import *
 K = ElliptischeKromme(1, 1, 5)
 k = Punt(K, 0, 1)
 DH = DiffieHellman(K, k)
+print(DH)
 a = int(input('λ? '))
 publiekeSleutelA = DH.publiekeSleutel(a)
 print('De publieke sleutel van persoon A is %s' % publiekeSleutelA)
