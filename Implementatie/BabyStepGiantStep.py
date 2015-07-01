@@ -60,8 +60,11 @@ class BabyStepGiantStep(object):
             j = 1
             while j < self.m:
                 if not (self.verkrijgElement(j) == 'O' and self.Z == 'O') and self.Z.isGelijk(self.verkrijgElement(j)):
+                    # Reset Z en keer ν = im+j terug
+                    self.Z = self.D
                     return i*self.m+j
                 elif self.verkrijgElement(j) == 'O' and self.Z == 'O':
+                    self.Z = self.D
                     return i*self.m+j
                 j += 1
             i += 1

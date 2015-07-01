@@ -21,9 +21,8 @@ def isPriem(getal):
         return True
 
 # Registreert verstreken tijd benodigd voor uitvoering van een methode
-# ---> klok(f, [argumenten])
-def klok(f, args):
+def klok(f):
     A = time.perf_counter()
-    result = f(*args)
+    result = f
     B = time.perf_counter()
     return [result, B-A]
